@@ -10,12 +10,21 @@ class Team {
         this.members = new Set();
     }
     add(char) {
-        if (this.members.has(char)) {
+       /* if (this.members.has(char)) {
             throw new Error('Персонаж уже в команде');
         } else {
             this.members.add(char);
             //console.log('успешно');
-        }                  
+        }  */  
+        try {
+            if (this.members.has(char)) {
+                throw new Error('Персонаж уже в команде');
+            } else {
+                this.members.add(char);
+                //console.log('успешно');
+            } 
+        } catch(Err)  {            
+        }           
     }
     addAll(...char) {
         this.members.add(...char);
@@ -38,4 +47,6 @@ team.addAll(member1,member2,member3,{ name: 'Andrey' }); // успешно
 team.add(member1); // успешно
 team.add(member2); // успешно
 team.add(member3); // ошибка
-team.add({ name: 'Andrey' }); // успешно */
+team.add({ name: 'Andrey' }); // успешно 
+
+console.log(team.toArray());*/
